@@ -1,0 +1,56 @@
+{
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "dependsOn": [
+        "^dev",
+        "@typebot.io/prisma#db:generate",
+        "@typebot.io/prisma#db:push"
+      ],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build", "@typebot.io/prisma#db:generate"],
+      "outputs": [".next/**", "dist/**", "build/**"],
+      "outputMode": "new-only"
+    },
+    "build:docker": {
+      "dependsOn": ["^build", "@typebot.io/prisma#db:generate"],
+      "outputs": [".next/**", "dist/**", "build/**"],
+      "outputMode": "new-only"
+    },
+    "docs#build": {
+      "dependsOn": ["api:generate"],
+      "outputs": ["build/**"],
+      "outputMode": "new-only"
+    },
+    "build:env": {
+      "cache": false
+    },
+    "api:generate": {
+      "dependsOn": ["bot-engine#build", "@typebot.io/prisma#db:generate"],
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:cleanDatabase": {
+      "dependsOn": ["@typebot.io/prisma#db:generate"],
+      "cache": false
+    },
+    "telemetry:sendTotalResultsDigest": {
+      "dependsOn": ["@typebot.io/prisma#db:generate"],
+      "cache": false
+    },
+    "sendAlertEmails": {
+      "dependsOn": ["@typebot.io/prisma#db:generate"],
+      "cache": false
+    }
+  }
+}

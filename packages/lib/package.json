@@ -1,0 +1,30 @@
+{
+  "name": "@typebot.io/lib",
+  "version": "1.0.0",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "devDependencies": {
+    "@paralleldrive/cuid2": "2.2.1",
+    "@playwright/test": "1.36.0",
+    "@typebot.io/prisma": "workspace:*",
+    "@typebot.io/schemas": "workspace:*",
+    "@typebot.io/tsconfig": "workspace:*",
+    "@types/nodemailer": "6.4.8",
+    "aws-sdk": "2.1415.0",
+    "dotenv": "16.3.1",
+    "next": "13.4.3",
+    "nodemailer": "6.9.3",
+    "typescript": "5.1.6"
+  },
+  "peerDependencies": {
+    "aws-sdk": "2.1152.0",
+    "next": "13.0.0",
+    "nodemailer": "6.7.8"
+  },
+  "dependencies": {
+    "got": "12.6.0",
+    "minio": "7.1.1"
+  }
+}

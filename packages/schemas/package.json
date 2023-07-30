@@ -1,0 +1,17 @@
+{
+  "name": "@typebot.io/schemas",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "dependencies": {
+    "@udecode/plate-common": "^21.1.5",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@typebot.io/prisma": "workspace:*",
+    "@typebot.io/tsconfig": "workspace:*",
+    "typescript": "5.1.6"
+  }
+}
